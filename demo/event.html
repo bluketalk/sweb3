@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script type="text/javascript" src="../node_modules/bignumber.js/bignumber.min.js"></script>
+<script type="text/javascript" src="../dist/web3.js"></script>
+<script type="text/javascript">
+
+    // var Web3 = require('Web3');
+    var web3 = new Web3();
+    web3.setProvider(new web3.providers.HttpProvider("http://192.168.1.9:1337"));
+
+    var tokenContractABI =   [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "testEvent",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "x",
+          "type": "uint256"
+        }
+      ],
+      "name": "set",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "get",
+      "outputs": [
+        {
+          "name": "retVal",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+
+;
+    var contractAddr = "0xA9200B14E0bBd154a61793ea6080532a48bd3e7b";
+    var tokenContract = new web3.eth.Contract(tokenContractABI, contractAddr);
+
+    // tokenContract.events.allEvents({fromBlock: 0, toBlock: 'latest'}, function(error, result){
+    //     printLog("-------\n");
+    //     if (!error)
+    //         printLog("error ",error);
+    //         console.log(result);
+    //         printLog("Event are as following:-------");
+
+    //         for(index in result){
+    //             re = result[index]
+    //             printLog( index);
+    //             str = JSON.stringify(re, null, 4)
+    //             printLog(str);
+
+    //             // for(key in re){
+    //             //     printLog(key + " : " + re[key]);
+    //             // }
+    //             // printLog("=== args === ");
+    //             // for(key in re.returnValues){
+    //             //     printLog(key + " : " + re.returnValues[key]);
+    //             // }
+
+    //             printLog("-------\n");
+    //         }
+
+    //         printLog("Event ending-------\n");
+
+    // });
+
+
+    tokenContract.getPastEvents("allEvents",{fromBlock: 0, toBlock: 'latest'}, function(error, result){
+
+        if (!error)
+            console.log(result);
+            printLog("Event are as following:-------");
+
+            for(index in result){
+                re = result[index]
+                printLog("=============================================     " + index + "     ==============================================");
+                str = JSON.stringify(re, null, 4)
+                printLog(str);
+
+                // for(key in re){
+                //     printLog(key + " : " + re[key]);
+                // }
+                // printLog("=== args === ");
+                // for(key in re.returnValues){
+                //     printLog(key + " : " + re.returnValues[key]);
+                // }
+
+                printLog("-------\n");
+            }
+
+            printLog("Event ending-------\n");
+
+        });
+
+    // tokenContract.once("allEvents",{fromBlock: 0, toBlock: 'latest'}, function(error, result){
+
+    //     if (!error)
+    //         printLog("error ",error);
+    //         console.log(result);
+    //         printLog("Event are as following:-------");
+
+    //         for(index in result){
+    //             re = result[index]
+    //             printLog( index);
+    //             str = JSON.stringify(re, null, 4)
+    //             printLog(str);
+
+    //             // for(key in re){
+    //             //     printLog(key + " : " + re[key]);
+    //             // }
+    //             // printLog("=== args === ");
+    //             // for(key in re.returnValues){
+    //             //     printLog(key + " : " + re.returnValues[key]);
+    //             // }
+
+    //             printLog("-------\n");
+    //         }
+
+    //         printLog("Event ending-------\n");
+
+    //     });
+
+
+    // watch all event
+    // var events = tokenContract.allEvents({fromBlock: 0, toBlock: 'latest'});
+    // events.watch(function(error, result){
+    //   if (!error)
+    //     printLog(result.event);
+    //     printLog("Event are as following:-------");
+    //     for(key in result){
+    //         printLog(key + " : " + result[key]);
+    //     }
+    //     printLog("=== args === ");
+    //      for(key in result.args){
+    //         printLog(key + " : " + result.args[key]);
+    //     }
+    //     printLog("Event ending-------\n");
+
+    // });
+
+    function printLog(str){
+         document.getElementById("current").innerText = document.getElementById("current").innerText +str + "\n";
+    }
+
+
+</script>
+</head>
+<body>
+    <h1>Forin Bridge all event</h1>
+    <div></div>
+    <div id="coinbase"></div>
+    <div id="original"></div>
+    <div id="current"></div>
+    <div id="diff"></div>
+</body>
+</html>
+
