@@ -1,0 +1,21 @@
+{
+  "name": "sweb3-eth",
+  "namespace": "ethereum",
+  "version": "1.0.0",
+  "description": "Web3 module to interact with the Ethereum blockchain and smart contracts.",
+  "repository": "https://github.com/ethereum/web3.js/tree/master/packages/sweb3-eth",
+  "license": "LGPL-3.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "sweb3-core": "1.0.0",
+    "sweb3-core-helpers": "1.0.0",
+    "sweb3-core-method": "1.0.0",
+    "sweb3-core-subscriptions": "1.0.0",
+    "sweb3-eth-abi": "1.0.0",
+    "sweb3-eth-accounts": "1.0.0",
+    "sweb3-eth-contract": "1.0.0",
+    "sweb3-eth-iban": "1.0.0",
+    "sweb3-utils": "1.0.0",
+    "underscore": "1.8.3"
+  }
+}

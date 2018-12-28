@@ -1,0 +1,14 @@
+{
+    "name": "sweb3-core-helpers",
+    "namespace": "ethereum",
+    "version": "1.0.0",
+    "description": "Web3 core tools helper for sub packages. This is an internal package.",
+    "repository": "https://github.com/ethereum/web3.js/tree/master/packages/sweb3-core-helpers",
+    "license": "LGPL-3.0",
+    "main": "src/index.js",
+    "dependencies": {
+        "sweb3-eth-iban": "1.0.0",
+        "sweb3-utils": "1.0.0",
+        "underscore": "1.8.3"
+    }
+}
