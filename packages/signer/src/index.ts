@@ -1,6 +1,6 @@
-require('web3-eth')
+require('sweb3-eth')
 const EC = require('elliptic').ec
-const utils = require('web3-utils')
+const utils = require('sweb3-utils')
 const blockchainPb = require('../proto-js/blockchain_pb')
 
 const MAX_VALUE = '0x' + 'f'.repeat(32)

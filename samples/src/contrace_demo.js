@@ -1,4 +1,4 @@
-const Web3Utils = require('web3-utils')
+const Web3Utils = require('../../packages/sweb3-utils');
 require('dotenv').config({
   path: __dirname + '/../.env'
 });
@@ -10,7 +10,6 @@ const {web3, deploymentPrivateKey, RPC_URL} = require('./web3');
 
 const SimpleStorage = require('../build/contracts/SimpleStorage.json')
 
-const DEPLOYMENT_GAS_PRICE =  Web3Utils.toWei(process.env.DEPLOYMENT_GAS_PRICE, 'gwei');
 
 const {
   DEPLOYMENT_ACCOUNT_ADDRESS,

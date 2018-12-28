@@ -1,4 +1,4 @@
-const Web3Utils = require('../../packages/web3-utils');
+const Web3Utils = require('../../packages/sweb3-utils');
 require('dotenv').config({
   path: __dirname + '/../.env'
 });

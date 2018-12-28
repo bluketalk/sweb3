@@ -3,7 +3,7 @@ var assert = chai.assert;
 var SandboxedModule = require('sandboxed-module');
 
 SandboxedModule.registerBuiltInSourceTransformer('istanbul');
-var HttpProvider = SandboxedModule.require('../packages/web3-providers-http', {
+var HttpProvider = SandboxedModule.require('../packages/sweb3-providers-http', {
     requires: {
         'xhr2-cookies': require('./helpers/FakeXHR2'),
         // 'xmlhttprequest': require('./helpers/FakeXMLHttpRequest')
@@ -11,7 +11,7 @@ var HttpProvider = SandboxedModule.require('../packages/web3-providers-http', {
     singleOnly: true
 });
 
-describe('web3-providers-http', function () {
+describe('sweb3-providers-http', function () {
     describe('prepareRequest', function () {
         it('should set request header', function () {
             var provider = new HttpProvider('http://localhost:8545', {headers: [{name: 'Access-Control-Allow-Origin',  value: '*'}]});

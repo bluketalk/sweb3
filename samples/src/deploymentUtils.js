@@ -1,4 +1,4 @@
-const Web3 = require('../../packages/web3')
+const Web3 = require('../../packages/sweb3')
 const Tx = require('ethereumjs-tx')
 const fetch = require('node-fetch')
 const assert = require('assert')

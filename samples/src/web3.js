@@ -1,10 +1,10 @@
 require('dotenv').config({
   path: __dirname + './.env'
 });
-const Web3Utils = require('../../packages/web3-utils');
+const Web3Utils = require('../../packages/sweb3-utils');
 
 const RPC_URL = process.env.RPC_URL;
-const Sweb3 = require('../../packages/web3')
+const Sweb3 = require('../../packages/sweb3')
 
 const homeProvider = new Sweb3.providers.HttpProvider(RPC_URL)
 const web3 = new Sweb3(homeProvider)

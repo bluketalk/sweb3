@@ -1,9 +1,9 @@
 var chai = require('chai');
 var assert = chai.assert;
 var FakeHttpProvider = require('./helpers/FakeHttpProvider');
-var Web3 = require('../packages/web3');
-var sha3 = require('../packages/web3-utils').sha3;
-var asciiToHex = require('../packages/web3-utils').asciiToHex;
+var Web3 = require('../packages/sweb3');
+var sha3 = require('../packages/sweb3-utils').sha3;
+var asciiToHex = require('../packages/sweb3-utils').asciiToHex;
 
 describe('ens', function () {
     var provider;

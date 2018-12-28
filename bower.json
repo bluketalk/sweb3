@@ -1,11 +1,11 @@
 {
   "namespace": "ethereum",
   "name": "web3",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "Ethereum JavaScript API",
   "license": "LGPL-3.0",
   "main": [
-    "./dist/web3.min.js"
+    "./dist/sweb3.min.js"
   ],
   "moduleType": "global",
   "dependencies": {
