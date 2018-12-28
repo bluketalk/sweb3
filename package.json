@@ -1,9 +1,8 @@
 {
-  "name": "web3",
-  "private": true,
-  "namespace": "ethereum",
-  "version": "1.0.2",
-  "description": "Ethereum JavaScript API wrapper repository",
+  "name": "sweb3",
+  "namespace": "cita",
+  "version": "1.0.3",
+  "description": "CITA JavaScript API wrapper repository",
   "license": "LGPL-3.0",
   "main": "./packages/web3/src/index.js",
   "directories": {
@@ -34,7 +33,7 @@
     "JavaScript",
     "API"
   ],
-  "author": "ethereum.org",
+  "author": "Buluke",
   "authors": [
     {
       "name": "Buluke",
