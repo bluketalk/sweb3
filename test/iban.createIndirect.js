@@ -1,6 +1,6 @@
 var chai = require('chai');
 var assert = chai.assert;
-var Iban = require('../packages/sweb3-eth-iban');
+var Iban = require('../packages/sweb3js-eth-iban');
 
 var tests = [
     { institution: 'XREG', identifier: 'GAVOFYORK', expected: 'XE81ETHXREGGAVOFYORK'}

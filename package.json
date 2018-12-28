@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "CITA JavaScript API wrapper repository",
   "license": "LGPL-3.0",
-  "main": "./packages/sweb3/src/index.js",
+  "main": "./packages/sweb3js/src/index.js",
   "directories": {
     "doc": "./doc",
     "test": "./test"

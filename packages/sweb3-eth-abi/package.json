@@ -3,7 +3,7 @@
   "namespace": "ethereum",
   "version": "1.0.0",
   "description": "Web3 module encode and decode EVM in/output.",
-  "repository": "https://github.com/ethereum/web3.js/tree/master/packages/sweb3-eth-abi",
+  "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3js-eth-abi",
   "license": "LGPL-3.0",
   "main": "src/index.js",
   "dependencies": {

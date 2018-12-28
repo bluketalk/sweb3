@@ -2,7 +2,7 @@ var _ = require('underscore');
 var chai = require('chai');
 var assert = chai.assert;
 var FakeIpcProvider = require('./FakeIpcProvider');
-var Web3 = require('../../packages/sweb3');
+var Web3 = require('../../packages/sweb3js');
 
 var clone = function (object) { return object ? JSON.parse(JSON.stringify(object)) : []; };
 

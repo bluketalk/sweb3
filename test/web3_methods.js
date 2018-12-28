@@ -1,5 +1,5 @@
 var u = require('./helpers/test.utils.js');
-var Web3 = require('../packages/sweb3');
+var Web3 = require('../packages/sweb3js');
 var web3 = new Web3();
 
 describe('web3', function() {

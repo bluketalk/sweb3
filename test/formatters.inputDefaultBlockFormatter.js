@@ -1,6 +1,6 @@
 var chai = require('chai');
 var assert = chai.assert;
-var formatters = require('../packages/sweb3-core-helpers/src/formatters.js');
+var formatters = require('../packages/sweb3js-core-helpers/src/formatters.js');
 
 var tests = [
     { value: 'genesis', expected: '0x0' },

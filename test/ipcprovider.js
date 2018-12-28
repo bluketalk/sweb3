@@ -6,7 +6,7 @@ var FakeIpcRequest = require('./helpers/FakeIpcRequest')
 var net = new FakeIpcRequest();
 
 SandboxedModule.registerBuiltInSourceTransformer('istanbul');
-var IpcProvider = SandboxedModule.require('../packages/sweb3-providers-ipc', {
+var IpcProvider = SandboxedModule.require('../packages/sweb3js-providers-ipc', {
     requires: {
         'bn.js': require('bn.js'),
     },

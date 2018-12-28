@@ -3,7 +3,7 @@
     "namespace": "ethereum",
     "version": "1.0.0",
     "description": "Creates the methods on the web3 modules. This is an internal package.",
-    "repository": "https://github.com/ethereum/web3.js/tree/master/packages/sweb3-core-method",
+    "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3js-core-method",
     "license": "LGPL-3.0",
     "main": "src/index.js",
     "dependencies": {

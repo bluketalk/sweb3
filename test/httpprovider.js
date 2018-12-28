@@ -3,7 +3,7 @@ var assert = chai.assert;
 var SandboxedModule = require('sandboxed-module');
 
 SandboxedModule.registerBuiltInSourceTransformer('istanbul');
-var HttpProvider = SandboxedModule.require('../packages/sweb3-providers-http', {
+var HttpProvider = SandboxedModule.require('../packages/sweb3js-providers-http', {
     requires: {
         'xhr2-cookies': require('./helpers/FakeXHR2'),
         // 'xmlhttprequest': require('./helpers/FakeXMLHttpRequest')

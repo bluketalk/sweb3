@@ -1,5 +1,5 @@
 var assert = require('assert');
-var formatters = require('../packages/sweb3-core-helpers/src/formatters.js');
+var formatters = require('../packages/sweb3js-core-helpers/src/formatters.js');
 
 describe('formatters', function () {
     describe('outputPostFormatter', function () {

@@ -1,7 +1,7 @@
 var chai = require('chai');
 var assert = chai.assert;
-var Eth = require('../packages/sweb3-eth');
-var Web3 = require('../packages/sweb3');
+var Eth = require('../packages/sweb3js-eth');
+var Web3 = require('../packages/sweb3js');
 
 var eth = new Eth();
 

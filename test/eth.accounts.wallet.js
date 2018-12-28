@@ -1,7 +1,7 @@
-var Accounts = require("./../packages/sweb3-eth-accounts");
+var Accounts = require("./../packages/sweb3js-eth-accounts");
 var chai = require('chai');
 var assert = chai.assert;
-var Web3 = require('../packages/sweb3');
+var Web3 = require('../packages/sweb3js');
 var web3 = new Web3();
 
 var tests = [

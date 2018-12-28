@@ -17,14 +17,14 @@ var FakeHttpProvider = require('./helpers/FakeHttpProvider');
 
 var chai = require('chai');
 var assert = chai.assert;
-var Web3 = require('../packages/sweb3');
-var Eth = require('../packages/sweb3-eth');
-// var Shh = require('../packages/sweb3-shh');
-// var Personal = require('../packages/sweb3-eth-personal');
-// var Accounts = require('../packages/sweb3-eth-accounts');
-var Contract = require('../packages/sweb3-eth-contract');
-// var Net = require('../packages/sweb3-net');
-var Bzz = require('../packages/sweb3-bzz');
+var Web3 = require('../packages/sweb3js');
+var Eth = require('../packages/sweb3js-eth');
+// var Shh = require('../packages/sweb3js-shh');
+// var Personal = require('../packages/sweb3js-eth-personal');
+// var Accounts = require('../packages/sweb3js-eth-accounts');
+var Contract = require('../packages/sweb3js-eth-contract');
+// var Net = require('../packages/sweb3js-net');
+var Bzz = require('../packages/sweb3js-bzz');
 
 
 var tests = [{

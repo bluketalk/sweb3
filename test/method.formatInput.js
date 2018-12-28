@@ -1,6 +1,6 @@
 var chai = require('chai');
 var assert = chai.assert;
-var Method = require('../packages/sweb3-core-method');
+var Method = require('../packages/sweb3js-core-method');
 
 describe('lib/web3/method', function () {
     describe('formatInput', function () {

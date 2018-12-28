@@ -1,7 +1,7 @@
 var chai = require('chai');
 var assert = chai.assert;
 var u = require('./helpers/test.utils.js');
-var Eth = require('../packages/sweb3-eth');
+var Eth = require('../packages/sweb3js-eth');
 var eth = new Eth();
 
 describe('web3.net', function() {

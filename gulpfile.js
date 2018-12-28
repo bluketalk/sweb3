@@ -24,7 +24,7 @@ var DEST = path.join(__dirname, 'dist/');
 var packages = [{
     fileName: 'web3',
     expose: 'Web3',
-    src: './packages/sweb3/src/index.js',
+    src: './packages/sweb3js/src/index.js',
     ignore: ['xmlhttprequest', 'websocket']
 }, {
     fileName: 'sweb3-utils',
@@ -33,53 +33,53 @@ var packages = [{
 }, {
     fileName: 'sweb3-eth',
     expose: 'Web3Eth',
-    src: './packages/sweb3-eth/src/index.js'
+    src: './packages/sweb3js-eth/src/index.js'
 }, {
     fileName: 'sweb3-eth-contract',
     expose: 'Web3EthContract',
-    src: './packages/sweb3-eth-contract/src/index.js'
+    src: './packages/sweb3js-eth-contract/src/index.js'
 },  {
     fileName: 'sweb3-eth-iban',
     expose: 'Web3EthIban',
-    src: './packages/sweb3-eth-iban/src/index.js'
+    src: './packages/sweb3js-eth-iban/src/index.js'
 }, {
     fileName: 'sweb3-eth-abi',
     expose: 'Web3EthAbi',
-    src: './packages/sweb3-eth-abi/src/index.js'
+    src: './packages/sweb3js-eth-abi/src/index.js'
 },{
     fileName: 'sweb3-bzz',
     expose: 'Web3Bzz',
-    src: './packages/sweb3-bzz/src/index.js'
+    src: './packages/sweb3js-bzz/src/index.js'
 }, {
     fileName: 'sweb3-providers-ipc',
     expose: 'Web3IpcProvider',
-    src: './packages/sweb3-providers-ipc/src/index.js'
+    src: './packages/sweb3js-providers-ipc/src/index.js'
 }, {
     fileName: 'sweb3-providers-http',
     expose: 'Web3HttpProvider',
-    src: './packages/sweb3-providers-http/src/index.js',
+    src: './packages/sweb3js-providers-http/src/index.js',
     ignore: ['xmlhttprequest']
 }, {
     fileName: 'sweb3-providers-ws',
     expose: 'Web3WsProvider',
-    src: './packages/sweb3-providers-ws/src/index.js',
+    src: './packages/sweb3js-providers-ws/src/index.js',
     ignore: ['websocket']
 }, {
     fileName: 'sweb3-core-subscriptions',
     expose: 'Web3Subscriptions',
-    src: './packages/sweb3-core-subscriptions/src/index.js'
+    src: './packages/sweb3js-core-subscriptions/src/index.js'
 }, {
     fileName: 'sweb3-core-requestmanager',
     expose: 'Web3RequestManager',
-    src: './packages/sweb3-core-requestmanager/src/index.js'
+    src: './packages/sweb3js-core-requestmanager/src/index.js'
 }, {
     fileName: 'sweb3-core-promievent',
     expose: 'Web3PromiEvent',
-    src: './packages/sweb3-core-promievent/src/index.js'
+    src: './packages/sweb3js-core-promievent/src/index.js'
 }, {
     fileName: 'sweb3-core-method',
     expose: 'Web3Method',
-    src: './packages/sweb3-core-method/src/index.js'
+    src: './packages/sweb3js-core-method/src/index.js'
 }];
 
 var browserifyOptions = {
@@ -180,7 +180,7 @@ gulp.task('publishTag', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./packages/sweb3/src/*.js'], gulp.series('lint', 'default'));
+    gulp.watch(['./packages/sweb3js/src/*.js'], gulp.series('lint', 'default'));
 });
 
 gulp.task('all', gulp.series('version', 'lint', 'clean', packages[packages.length - 1].fileName));

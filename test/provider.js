@@ -2,10 +2,10 @@ var chai = require('chai');
 var assert = chai.assert;
 var net = require('net');
 
-var Eth = require('../packages/sweb3-eth');
-var Shh = require('../packages/sweb3-shh');
-var Net = require('../packages/sweb3-net');
-var Web3 = require('../packages/sweb3');
+var Eth = require('../packages/sweb3js-eth');
+var Shh = require('../packages/sweb3js-shh');
+var Net = require('../packages/sweb3js-net');
+var Web3 = require('../packages/sweb3js');
 
 
 var tests = [{
