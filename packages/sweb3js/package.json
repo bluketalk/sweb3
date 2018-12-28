@@ -1,7 +1,7 @@
 {
   "name": "sweb3js",
   "namespace": "ethereum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ethereum JavaScript API",
   "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3js",
   "license": "LGPL-3.0",
@@ -42,9 +42,9 @@
     }
   ],
   "dependencies": {
-    "sweb3-bzz": "1.0.0",
-    "sweb3-core": "1.0.0",
-    "sweb3-eth": "1.0.0",
-    "sweb3-utils": "1.0.0"
+    "sweb3-bzz": "1.0.1",
+    "sweb3-core": "1.0.1",
+    "sweb3-eth": "1.0.1",
+    "sweb3-utils": "1.0.1"
   }
 }

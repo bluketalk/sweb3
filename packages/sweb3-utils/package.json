@@ -1,7 +1,7 @@
 {
     "name": "sweb3-utils",
     "namespace": "ethereum",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Collection of utility functions used in web3.js.",
     "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3-utils",
     "license": "LGPL-3.0",

@@ -1,7 +1,7 @@
 {
   "name": "sweb3-eth-accounts",
   "namespace": "ethereum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web3 module to generate Ethereum accounts and sign data and transactions.",
   "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3-eth-accounts",
   "license": "LGPL-3.0",
@@ -11,10 +11,10 @@
     "crypto-browserify": "3.12.0",
     "eth-lib": "0.2.7",
     "scrypt.js": "0.2.0",
-    "sweb3-core": "1.0.0",
-    "sweb3-core-helpers": "1.0.0",
-    "sweb3-core-method": "1.0.0",
-    "sweb3-utils": "1.0.0",
+    "sweb3-core": "1.0.1",
+    "sweb3-core-helpers": "1.0.1",
+    "sweb3-core-method": "1.0.1",
+    "sweb3-utils": "1.0.1",
     "underscore": "1.8.3",
     "uuid": "2.0.1"
   }

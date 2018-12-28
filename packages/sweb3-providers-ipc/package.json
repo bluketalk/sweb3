@@ -1,14 +1,14 @@
 {
     "name": "sweb3-providers-ipc",
     "namespace": "ethereum",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Module to handle web3 RPC connections over IPC sockets.",
     "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3-providers-ipc",
     "license": "LGPL-3.0",
     "main": "src/index.js",
     "dependencies": {
         "oboe": "2.1.3",
-        "sweb3-core-helpers": "1.0.0",
+        "sweb3-core-helpers": "1.0.1",
         "underscore": "1.8.3"
     }
 }

@@ -1,7 +1,7 @@
 {
     "name": "sweb3-bzz",
     "namespace": "ethereum",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Web3 module to interact with the Swarm network.",
     "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3-bzz",
     "license": "LGPL-3.0",
