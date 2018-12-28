@@ -33,8 +33,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// const signer_1 = __importDefault(require("@nervos/signer"));
-const signer_1 = require('../../signer/lib');
+const signer_1 = __importDefault(require("sweb3-signer"));
+// const signer_1 = require('../../signer/lib');
 
 var _ = require('underscore');
 var core = require('sweb3-core');

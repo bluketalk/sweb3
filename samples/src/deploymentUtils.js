@@ -21,7 +21,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         "default": mod
     };
 };
-const signer = require("../../packages/signer/lib");
+const signer = require("../../packages/sweb3-signer/lib");
 
 
 async function deployContract(contractJson, args, {

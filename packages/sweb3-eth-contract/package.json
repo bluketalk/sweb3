@@ -13,6 +13,7 @@
         "sweb3-core-promievent": "1.0.0",
         "sweb3-core-subscriptions": "1.0.0",
         "sweb3-eth-abi": "1.0.0",
+        "sweb3-signer": "1.0.0",
         "sweb3-utils": "1.0.0",
         "underscore": "1.8.3"
     }
