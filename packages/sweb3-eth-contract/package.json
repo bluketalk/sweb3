@@ -3,7 +3,7 @@
     "namespace": "ethereum",
     "version": "1.0.0",
     "description": "Web3 module to interact with Ethereum smart contracts.",
-    "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3js-eth-contract",
+    "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3-eth-contract",
     "license": "LGPL-3.0",
     "main": "src/index.js",
     "dependencies": {

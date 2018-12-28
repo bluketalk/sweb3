@@ -1,6 +1,6 @@
 var chai = require('chai');
 var assert = chai.assert;
-var Abi = require('../packages/sweb3js-eth-abi');
+var Abi = require('../packages/sweb3-eth-abi');
 
 var tests = [{
     params: [{

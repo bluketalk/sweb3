@@ -19,7 +19,7 @@ describe('Web3.providers.givenProvider', function () {
 
         it('when instantiating Eth', function () {
 
-            var Eth = require('../packages/sweb3js-eth');
+            var Eth = require('../packages/sweb3-eth');
 
             assert.deepEqual(Eth.givenProvider, global.web3.currentProvider);
 

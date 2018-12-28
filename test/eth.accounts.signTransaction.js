@@ -1,6 +1,6 @@
 var FakeHttpProvider = require('./helpers/FakeIpcProvider');
 var Web3 = require('../packages/sweb3js');
-var Accounts = require("./../packages/sweb3js-eth-accounts");
+var Accounts = require("./../packages/sweb3-eth-accounts");
 var ethjsSigner = require("ethjs-signer");
 var chai = require('chai');
 var assert = chai.assert;

@@ -1,9 +1,9 @@
 var chai = require('chai');
 var assert = chai.assert;
-var formatters = require('../packages/sweb3js-core-helpers/src/formatters.js');
+var formatters = require('../packages/sweb3-core-helpers/src/formatters.js');
 var FakeHttpProvider = require('./helpers/FakeIpcProvider');
-var Eth = require('../packages/sweb3js-eth');
-var Method = require('../packages/sweb3js-core-method');
+var Eth = require('../packages/sweb3-eth');
+var Method = require('../packages/sweb3-core-method');
 
 var address = '0x1234567890123456789012345678901234567891';
 

@@ -1,4 +1,4 @@
-var Accounts = require("./../packages/sweb3js-eth-accounts");
+var Accounts = require("./../packages/sweb3-eth-accounts");
 var ethereumWallet = require('ethereumjs-wallet');
 var chai = require('chai');
 var assert = chai.assert;

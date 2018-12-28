@@ -17,7 +17,7 @@ describe('Web3.providers.givenProvider', function () {
 
         it('when instantiating Eth', function () {
 
-            var Eth = require('../packages/sweb3js-eth');
+            var Eth = require('../packages/sweb3-eth');
 
             assert.deepEqual(Eth.givenProvider, global.ethereumProvider);
 
@@ -25,7 +25,7 @@ describe('Web3.providers.givenProvider', function () {
 
         it('when instantiating Bzz', function () {
 
-            var Bzz = require('../packages/sweb3js-bzz');
+            var Bzz = require('../packages/sweb3-bzz');
 
             assert.deepEqual(Bzz.givenProvider, global.ethereumProvider.bzz);
 

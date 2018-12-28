@@ -3,7 +3,7 @@
     "namespace": "ethereum",
     "version": "1.0.0",
     "description": "Module to handle web3 RPC connections over WebSockets.",
-    "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3js-providers-ws",
+    "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3-providers-ws",
     "license": "LGPL-3.0",
     "main": "src/index.js",
     "dependencies": {
