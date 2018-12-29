@@ -28,7 +28,7 @@ async function run()
 
     //getBlock
     console.log('\n\n======================= ')
-    let block = await web3.eth.getBlock(100);
+    let block = await web3.eth.getBlock(5);
     console.log("block = ", block)
     block = await web3.eth.getBlock("0x3d41915363dea9c4c7bd67067d0c861331a4a06de2ae4731000fcf61d9dca4b9");
     console.log("block = ", block)

@@ -34,6 +34,10 @@ var Iban = require('sweb3-eth-iban');
 var Accounts = require('sweb3-eth-accounts');
 var abi = require('sweb3-eth-abi');
 
+var signer = require("sweb3-signer")
+// import signer, { unsigner } from 'sweb3-signer'
+
+
 var getNetworkType = require('./getNetworkType.js');
 var formatter = helpers.formatters;
 
@@ -109,6 +113,10 @@ var Eth = function Eth() {
 
     // add accounts
     this.accounts = new Accounts(this.currentProvider);
+
+    //signer
+    this.signer = signer.default;
+    this.unsigner = signer.unsigner;
 
     // add personal
     // this.personal = new Personal(this.currentProvider);
