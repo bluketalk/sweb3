@@ -32,17 +32,17 @@ async function run() {
 
     let nonce_2 = await web3.eth.getTransactionCount(test);
 
-    let b_2 = await web3.eth.getBalance("0xffa509c45749d5018da86b55ac60c7b96ff0bf95");
+    let b_2 = await web3.eth.getBalance("0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715");
     console.log("b_2 = ", b_2)
 
-    amount = Web3Utils.toWei("100")
+    amount = Web3Utils.toWei("10000")
     valu = Web3Utils.numberToHex(amount)
     console.log("valu = ", valu)
 
     tx = await sendRawTx({
         data: null,
         nonce: nonce_2,
-        to: "0xffa509c45749d5018da86b55ac60c7b96ff0bf95",
+        to: "0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715",
         privateKey: privatekey,
         value: valu,
         url: RPC_URL
@@ -52,7 +52,7 @@ async function run() {
 
     console.log("tx = ", tr)
 
-    b_2 = await web3.eth.getBalance("0xffa509c45749d5018da86b55ac60c7b96ff0bf95");
+    b_2 = await web3.eth.getBalance("0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715");
     console.log("b_2 = ", Web3Utils.fromWei(b_2))
 
 

@@ -70,8 +70,8 @@ async function run()
     let peercount = await web3.eth.getPeerCount();
     console.log("peercount = ", peercount)
 
-    de = web3.eth.defaultBlock
-    console.log("de = ", web3)
+    // de = web3.eth.defaultBlock
+    // console.log("de = ", web3)
 
 
 
