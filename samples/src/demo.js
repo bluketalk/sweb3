@@ -17,7 +17,7 @@ async function run()
 
     //getBlockNumber
     console.log('\n\n======================= ')
-    let blocknumber = await web3.eth.getBlockNumber();
+    let blocknumber = await web3.eth.getBlockNumber()
     console.log("blocknumber = ", blocknumber)
 
     //getCode     get contract code

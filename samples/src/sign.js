@@ -1,4 +1,4 @@
-const Web3Utils = require('../../packages/sweb3-utils')
+const Web3Utils = require('../../packages/sweb3-utils/src')
 require('dotenv').config({
     path: __dirname + '/../.env'
 });
@@ -32,7 +32,7 @@ async function run() {
     let privatekey = "0x2e62777168ae1828f4010fdc22f083768ddf0658eefb75d6421f6dfd7e94a728"
     const addr = privateKeyToAddress(privatekey)
 
-    let amount = Web3Utils.toWei("10000")
+    let amount = Web3Utils.toWei("100")
     let valu = Web3Utils.numberToHex(amount)
     let nonce = await web3.eth.getTransactionCount(addr);
     const current = await web3.eth.getBlockNumber();
@@ -49,54 +49,31 @@ async function run() {
 
 
     const signedData = web3.eth.signer(transaction)
+
+
+    //发送交易
     const result = await sendNodeRequest(
         RPC_URL,
         'sendRawTransaction',
         signedData
     )
 
-
     // const result =  web3.eth.sendSignedTransaction(signedData).then(console.log)
     console.log('pending txHash', result)
 
-
-    // const receipt = await getReceipt(result.hash, url)
-    // receipt.status = receipt.errorMessage == null ? "0x1" : "0x0"
-
-
-
-    // const test = privateKeyToAddress(privatekey)
-    // console.log("test================= ", test)
-    // let b = await web3.eth.getBalance(test);
-    // console.log("b = ", b)
-
-    // let nonce_2 = await web3.eth.getTransactionCount(test);
-
-    // let b_2 = await web3.eth.getBalance("0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715");
-    // console.log("b_2 = ", b_2)
-
-    // amount = Web3Utils.toWei("10000")
-    // valu = Web3Utils.numberToHex(amount)
-    // console.log("valu = ", valu)
-
-    // tx = await sendRawTx({
-    //     data: null,
-    //     nonce: nonce_2,
-    //     to: "0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715",
-    //     privateKey: privatekey,
-    //     value: valu,
-    //     url: RPC_URL
-    // })
-
-    // tr = await web3.eth.getTransactionReceipt(tx.transactionHash)
-
-    // console.log("tx = ", tr)
-
-    // b_2 = await web3.eth.getBalance("0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715");
-    // console.log("b_2 = ", Web3Utils.fromWei(b_2))
+    //获取交易回执
+    const receipt = await getReceipt(result.hash, RPC_URL)
+    receipt.status = receipt.errorMessage == null ? "0x1" : "0x0"
+    console.log("receipt = ", receipt)
 
 
+    b_2 = await web3.eth.getBalance("0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715");
+    console.log("b_2 = ", Web3Utils.fromWei(b_2))
 
+}
+
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 async function sendNodeRequest(url, method, signedData) {
@@ -113,11 +90,26 @@ async function sendNodeRequest(url, method, signedData) {
         })
     })
     const json = await request.json()
-    console.log("json = ", json)
+    // console.log("json = ", json)
     if (method === 'sendRawTransaction') {
         assert.equal(json.result.hash.length, 66, `Tx wasn't sent ${json}`)
     }
     return json.result
 }
+
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function getReceipt(txHash, url) {
+    await timeout(3)
+    let receipt = await sendNodeRequest(url, 'getTransactionReceipt', txHash)
+    // console.log("receipt = ", receipt)
+    if (receipt === null || receipt.blockNumber === null) {
+        receipt = await getReceipt(txHash, url)
+    }
+    return receipt
+}
+
 // module.exports = run;
 run()
