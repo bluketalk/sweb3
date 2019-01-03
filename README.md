@@ -5,7 +5,7 @@
 
  ### usage
     const Web3 = require('sweb3js')
-    const homeProvider = new Web3.providers.HttpProvider("http:127.0.0.1"1337")
+    const homeProvider = new Web3.providers.HttpProvider("http://127.0.0.1"1337")
     const web3 = new Web3(homeProvider)
 
 
