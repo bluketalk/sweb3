@@ -1,4 +1,13 @@
- a CITA web3.js library base on ethereum web3.js-1.0 
+   web3.js library for CITA base on ethereum web3.js-1.0 
+
+ ### installation
+    npm install sweb3js
+
+ ### usage
+    const Web3 = require('sweb3js')
+    const homeProvider = new Web3.providers.HttpProvider("http:127.0.0.1"1337")
+    const web3 = new Web3(homeProvider)
+
 
 ### base use
     const address = "0x2866BB02Cbb43F2Fc5dd081d6B68222Ab75b3190"
