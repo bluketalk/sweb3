@@ -45,7 +45,7 @@
     let nonce = await web3.eth.getTransactionCount(address);
     console.log("nonce = ", nonce)
 
-    //getTransactionCount
+    //getTransaction
     console.log('\n\n======================= ')
     let transaction = await web3.eth.getTransaction("0x0b377d47516fcf26e9454cc71b9aec7ef04e394a5df6c8aee542870e62489728");
     console.log("transaction = ", transaction)
