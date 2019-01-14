@@ -3,7 +3,7 @@ syntax = "proto3";
 enum ProofType {
     AuthorityRound = 0;
     Raft = 1;
-    Tendermint = 2;
+    Bft = 2;
 }
 
 message Proof {
@@ -18,8 +18,8 @@ message BlockHeader {
     bytes state_root = 4;
     bytes transactions_root = 5;
     bytes receipts_root = 6;
-    uint64 gas_used = 7;
-    uint64 gas_limit = 8;
+    uint64 quota_used = 7;
+    uint64 quota_limit = 8;
     Proof proof = 9;
     bytes proposer = 10;
 }
@@ -30,8 +30,8 @@ message Status {
 }
 
 message AccountGasLimit {
-    uint64 common_gas_limit = 1;
-    map<string,uint64> specific_gas_limit = 2;
+    uint64 common_quota_limit = 1;
+    map<string,uint64> specific_quota_limit = 2;
 }
 
 message RichStatus {
@@ -39,6 +39,8 @@ message RichStatus {
     uint64 height = 2;
     repeated bytes nodes = 3;
     uint64 interval = 4;
+    uint32 version = 5;
+    repeated bytes validators = 6;
 }
 
 enum Crypto {
@@ -55,6 +57,8 @@ message Transaction {
     bytes value = 6;
     uint32 chain_id = 7;
     uint32 version = 8;
+    bytes to_v1 = 9;
+    bytes chain_id_v1 = 10;
 }
 
 message UnverifiedTransaction {
@@ -97,5 +101,10 @@ message BlackList {
     // black list of address, the account that sent the transaction does not have enough gas
     repeated bytes black_list = 1;
     // clear list of address
-    repeated bytes clear_list = 2; 
+    repeated bytes clear_list = 2;
+}
+
+// State positioning signal
+message StateSignal {
+    uint64 height = 1;
 }

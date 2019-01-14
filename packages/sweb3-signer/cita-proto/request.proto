@@ -5,6 +5,7 @@ import "blockchain.proto";
 enum BlockTag {
     Latest = 0;
     Earliest = 1;
+    Pending = 2;
 }
 
 message Call {
@@ -12,6 +13,18 @@ message Call {
     bytes to = 2;
     bytes data = 3;
     string height = 4;
+}
+
+message StateProof {
+    bytes address = 1;
+    bytes position = 2;
+    string height = 3;
+}
+
+message StorageKey {
+    bytes address = 1;
+    bytes position = 2;
+    string height = 3;
 }
 
 message Request {
@@ -41,6 +54,9 @@ message Request {
         string meta_data = 22;
         // eth_getBalance
         string balance = 23;
+        StateProof state_proof = 24;
+        string block_header_height = 25;
+        StorageKey storage_key = 26;
     }
 }
 

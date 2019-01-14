@@ -1,7 +1,6 @@
-[![Travis](https://travis-ci.org/cryptape/nervos.js.svg?branch=develop)](https://travis-ci.org/cryptape/nervos.js)
-![npm (scoped)](https://img.shields.io/npm/v/@nervos/signer.svg)
-[![MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://img.shields.io/npm/v/@nervos/signer.svg)
-[![AppChain](https://img.shields.io/badge/made%20for-Nervos%20AppChain-blue.svg)](https://appchain.nervos.org)
+[![Travis](https://travis-ci.org/cryptape/cita-sdk-js.svg?branch=develop)](https://travis-ci.org/cryptape/cita-sdk-js)
+![npm (scoped)](https://img.shields.io/npm/v/@cryptape/cita-signer.svg)
+[![MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://img.shields.io/npm/v/@cryptape/cita-signer.svg)
 
 # nervos-signer
 
@@ -59,7 +58,7 @@ unsigner(transactionContent)
 ### Basic Usage
 
 ```javascript
-import signer, { unsigner } from '@nervos/signer'
+import signer, { unsigner } from '@cryptape/cita-signer'
 
 const transaction = {
   privateKey: '0x7cc34429d268cdf33e1595d9aa3c56bfcb785c24b7f6dd031fe059d93d8e92d9',

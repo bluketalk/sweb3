@@ -1,6 +1,5 @@
-require('sweb3-eth')
 const EC = require('elliptic').ec
-const utils = require('sweb3-utils')
+const utils = require('web3-utils')
 const blockchainPb = require('../proto-js/blockchain_pb')
 
 const MAX_VALUE = '0x' + 'f'.repeat(32)
@@ -11,7 +10,9 @@ export const getNonce = () => {
   return utils.randomHex(5)
 }
 export const hex2bytes = (num: string) => {
-  return utils.hexToBytes(num.startsWith('0x') ? num : '0x' + num)
+  num = num.replace(/^0x/, '')
+  num = num.length % 2 ? '0x0' + num : '0x' + num
+  return utils.hexToBytes(num)
 }
 export const bytes2hex = (bytes: Uint8Array) => {
   return utils.bytesToHex(bytes)
@@ -26,8 +27,8 @@ const signer = (
     quota,
     validUntilBlock,
     value = '',
-    version = 0,
-    chainId = 1,
+    version = '0',
+    chainId = '1',
     to = '',
   }: {
     from: string
@@ -37,13 +38,14 @@ const signer = (
     quota: number
     validUntilBlock: string | number
     value: string | number
-    version?: number
-    chainId: number
+    version?: string | number
+    chainId: string | number
     to?: string
   },
   externalKey?: string,
 ) => {
-  if (!privateKey && !externalKey) {
+  const _privateKey = externalKey || privateKey
+  if (!_privateKey) {
     console.warn(`No private key found`)
     return {
       data,
@@ -57,28 +59,53 @@ const signer = (
       to,
     }
   }
+
+  // preprocess
+  let _to: Uint8Array | string = to.toLowerCase().replace(/^0x/, '')
+  let _chainId: Uint8Array | string | number = chainId
+  let _version = +version ? `V${version}` : ''
+  let _nonce = `${nonce}`
+  let _quota = +quota
+  switch (_version) {
+    case 'V1': {
+      // set to
+      _to = new Uint8Array(hex2bytes(_to))
+
+      // set chainId
+      _chainId = hex2bytes('' + chainId) as Uint8Array
+      const chainIdBytes = new Uint8Array(32)
+      chainIdBytes.set(_chainId, 32 - _chainId.length)
+      _chainId = chainIdBytes
+      break
+    }
+    default: {
+      break
+    }
+  }
   const tx = new blockchainPb.Transaction()
 
   /**
    * nonce
    * random string with max length of 128, used to prevent repeated transaction
    */
-  if (nonce === undefined) {
+  if (!_nonce) {
     tx.setNonce(getNonce())
-  } else if (nonce.length > 128) {
+  } else if (_nonce.length > 128) {
     throw new Error(`Nonce should be random string with max length of 128`)
   } else {
-    tx.setNonce(nonce)
+    tx.setNonce(_nonce)
   }
 
   /**
    * quota
    * user-defined number, acts as gas limit
    */
-  if (typeof quota === 'number' && quota > 0) {
-    tx.setQuota(quota)
-  } else {
+  if (isNaN(_quota)) {
+    throw new Error('Quota should be set as number')
+  } else if (_quota <= 0) {
     throw new Error('Quota should be larger than 0')
+  } else {
+    tx.setQuota(_quota)
   }
 
   // tradeoff: now cita will throw error when value not set
@@ -108,7 +135,7 @@ const signer = (
 
   if (to) {
     if (utils.isAddress(to)) {
-      tx.setTo(to.toLowerCase().replace(/^0x/, ''))
+      tx[`setTo${_version}`](_to)
     } else {
       throw new Error(`Invalid to address`)
     }
@@ -124,10 +151,10 @@ const signer = (
     tx.setValidUntilBlock(+validUntilBlock)
   }
 
-  if (chainId === undefined) {
+  if (_chainId === undefined) {
     throw new Error(`Chain Id should be set`)
   } else {
-    tx.setChainId(chainId)
+    tx[`setChainId${_version}`](_chainId)
   }
 
   try {
@@ -143,20 +170,17 @@ const signer = (
 
   const hashedMsg = sha3(txMsg).slice(2)
 
-  // old style
-  var key = ec.keyFromPrivate(
-    // privateKey.startsWith('0x') ? privateKey.slice(2) : privateKey,
-    (externalKey || privateKey).replace(/^0x/, ''),
-    'hex',
-  )
-  var sign = key.sign(new Buffer(hashedMsg.toString(), 'hex'), { canonical: true })
-  var sign_r = sign.r.toString(16)
-  var sign_s = sign.s.toString(16)
-  if (sign_r.length == 63) sign_r = '0' + sign_r
-  if (sign_s.length == 63) sign_s = '0' + sign_s
-  var signature = sign_r + sign_s
-  var sign_buffer = new Buffer(signature, 'hex')
-  var sigBytes = new Uint8Array(65)
+  if (_privateKey.replace(/^0x/, '').length !== 64 || !utils.isHex(_privateKey)) {
+    throw new Error('Invalid Private Key')
+  }
+  // old school code
+  const key = ec.keyFromPrivate(_privateKey.replace(/^0x/, ''), 'hex')
+  const sign = key.sign(new Buffer(hashedMsg.toString(), 'hex'), { canonical: true })
+  let sign_r = sign.r.toString(16).padStart(64, 0)
+  let sign_s = sign.s.toString(16).padStart(64, 0)
+  const signature = (sign_r + sign_s).padStart(128, 0)
+  const sign_buffer = new Buffer(signature, 'hex')
+  const sigBytes = new Uint8Array(65)
   sigBytes.set(sign_buffer)
   sigBytes[64] = sign.recoveryParam
   // end
@@ -169,6 +193,7 @@ const signer = (
   const serializedUnverifiedTx = unverifiedTx.serializeBinary()
 
   const hexUnverifiedTx = utils.bytesToHex(serializedUnverifiedTx)
+
   return hexUnverifiedTx
 }
 export default signer

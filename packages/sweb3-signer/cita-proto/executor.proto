@@ -10,16 +10,16 @@ message ExecutedHeader {
     bytes transactions_root = 5;
     bytes receipts_root = 6;
     bytes log_bloom = 7;
-    uint64 gas_used = 8;
-    uint64 gas_limit = 9;
+    uint64 quota_used = 8;
+    uint64 quota_limit = 9;
     bytes proposer = 10;
 }
 
 enum ReceiptError {
     //ExecutionError
-    NotEnoughBaseGas = 0;
-    BlockGasLimitReached = 1;
-    AccountGasLimitReached = 2;
+    NotEnoughBaseQuota = 0;
+    BlockQuotaLimitReached = 1;
+    AccountQuotaLimitReached = 2;
     InvalidTransactionNonce = 3;
     NotEnoughCash = 4;
     NoTransactionPermission = 5;
@@ -28,7 +28,7 @@ enum ReceiptError {
     ExecutionInternal = 8;
     TransactionMalformed = 9;
     //EvmError
-    OutOfGas = 10;
+    OutOfQuota = 10;
     BadJumpDestination = 11;
     BadInstruction = 12;
     StackUnderflow = 13;
@@ -55,7 +55,7 @@ message StateRoot {
 
 message Receipt {
     StateRoot state_root = 1;
-    string gas_used = 2;
+    string quota_used = 2;
     bytes log_bloom = 3;
     repeated LogEntry logs = 4;
     ReceiptErrorWithOption error = 5;
@@ -73,11 +73,14 @@ message ExecutedInfo {
 }
 
 message ConsensusConfig {
-    uint64 block_gas_limit = 1;
-    AccountGasLimit account_gas_limit = 2;
+    uint64 block_quota_limit = 1;
+    AccountGasLimit account_quota_limit = 2;
     repeated bytes nodes = 3;
     uint64 block_interval = 4;
     bool check_quota = 5;
+    bytes admin_address = 6;
+    uint32 version = 7;
+    repeated bytes validators = 8;
 }
 
 message ExecutedResult {
