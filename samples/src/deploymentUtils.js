@@ -21,7 +21,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         "default": mod
     };
 };
-const signer = require("../../packages/sweb3-signer/lib");
 
 
 async function deployContract(contractJson, args, {
@@ -93,13 +92,16 @@ async function sendRawTx({
             quota: parseInt(GAS_LIMIT),
             data: data,
             chainId: 1,
-            version: 0,
+            version: 1,
             to,
             validUntilBlock: current + 88,
             value
         };
 
-        const signedData = signer.default(transaction)
+
+        console.log("trasaction = ", transaction)
+        const signedData = web3.eth.signer(transaction)
+
         const result = await sendNodeRequest(
             url,
             'sendRawTransaction',

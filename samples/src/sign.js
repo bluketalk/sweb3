@@ -25,11 +25,11 @@ const {
 
 async function run() {
 
-    b_2 = await web3.eth.getBalance("0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715");
+    b_2 = await web3.eth.getBalance("0x2866BB02Cbb43F2Fc5dd081d6B68222Ab75b3190");
     console.log("b_2 = ", Web3Utils.fromWei(b_2))
 
     console.log('======================= ')
-    let privatekey = "0x2e62777168ae1828f4010fdc22f083768ddf0658eefb75d6421f6dfd7e94a728"
+    let privatekey = "0x658e7011f1023a68153b6bfb79205d888616278e7607ad50af69585af0294548"
     const addr = privateKeyToAddress(privatekey)
 
     let amount = Web3Utils.toWei("100")
@@ -41,8 +41,8 @@ async function run() {
         nonce: nonce,
         quota: 99999999,
         chainId: 1,
-        version: 0,
-        to:"0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715",
+        version: 1,
+        to:"0x2866BB02Cbb43F2Fc5dd081d6B68222Ab75b3190",
         validUntilBlock: current + 88,
         value:valu
     };
@@ -66,8 +66,9 @@ async function run() {
     receipt.status = receipt.errorMessage == null ? "0x1" : "0x0"
     console.log("receipt = ", receipt)
 
+    await timeout(3)
 
-    b_2 = await web3.eth.getBalance("0x0b4697efc7dd8b6da69f1cd4e99ce838918cf715");
+    b_2 = await web3.eth.getBalance("0x2866BB02Cbb43F2Fc5dd081d6B68222Ab75b3190");
     console.log("b_2 = ", Web3Utils.fromWei(b_2))
 
 }
@@ -90,7 +91,7 @@ async function sendNodeRequest(url, method, signedData) {
         })
     })
     const json = await request.json()
-    // console.log("json = ", json)
+    console.log("json = ", json)
     if (method === 'sendRawTransaction') {
         assert.equal(json.result.hash.length, 66, `Tx wasn't sent ${json}`)
     }

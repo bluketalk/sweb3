@@ -22,12 +22,12 @@ async function deploySimpleStorage()
   let nonce = await web3.eth.getTransactionCount(DEPLOYMENT_ACCOUNT_ADDRESS);
   console.log('nonce : ', nonce)
   console.log('deploying SimpleStorage ')
-  const contract_SimpleStorage = await deployContract(SimpleStorage, [], {from: DEPLOYMENT_ACCOUNT_ADDRESS, nonce: nonce})
-  console.log(' SimpleStorage: ', contract_SimpleStorage.options.address)
+//   const contract_SimpleStorage = await deployContract(SimpleStorage, [], {from: DEPLOYMENT_ACCOUNT_ADDRESS, nonce: nonce})
+//   console.log(' SimpleStorage: ', contract_SimpleStorage.options.address)
   nonce++;
 
-//   contractAddr = "0xA9200B14E0bBd154a61793ea6080532a48bd3e7b";
-//   contract_SimpleStorage = new web3.eth.Contract(SimpleStorage.abi, contractAddr);
+  contractAddr = "0x91240AE66194c52bF6922cC0a74A67AA09f9D7C9";
+  contract_SimpleStorage = new web3.eth.Contract(SimpleStorage.abi, contractAddr);
 
 //   console.log("contract_SimpleStorage = " ,contract_SimpleStorage)
   console.log("contract_SimpleStorage = " ,contract_SimpleStorage.methods)
