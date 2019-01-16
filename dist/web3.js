@@ -31634,7 +31634,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
        * @return {Array} array of plain params
        */
       ABICoder.prototype.decodeParameters = function (outputs, bytes) {
-        if (!bytes || bytes === '0x' || bytes === '0X') {
+        if (outputs.length > 0 && (!bytes || bytes === '0x' || bytes === '0X')) {
           throw new Error('Returned values aren\'t valid, did it run Out of Gas?');
         }
 
@@ -43680,11 +43680,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           "saveSpec": null,
           "fetchSpec": "^6.4.0"
         },
-        "_requiredBy": ["/"],
+        "_requiredBy": ["/", "/browserify-sign", "/create-ecdh", "/eth-lib", "/web3-eth-accounts/eth-lib"],
         "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz",
         "_shasum": "c2d0b7776911b86722c632c3c06c60f2f819939a",
         "_spec": "elliptic@^6.4.0",
-        "_where": "/home/lyc/Desktop/insee/test/sweb3/packages/signer",
+        "_where": "/home/lyc/Desktop/insee/test/cita-sdk-js/packages/cita-signer",
         "author": {
           "name": "Fedor Indutny",
           "email": "fedor@indutny.com"
@@ -51453,7 +51453,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       module.exports = {
         "name": "sweb3js",
         "namespace": "ethereum",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "description": "Ethereum JavaScript API",
         "repository": "https://github.com/ijustgoon/sweb3/tree/master/packages/sweb3js",
         "license": "LGPL-3.0",
@@ -51486,7 +51486,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         "dependencies": {
           "sweb3-bzz": "1.0.1",
           "sweb3-core": "1.0.1",
-          "sweb3-eth": "1.0.2",
+          "sweb3-eth": "1.0.3",
           "sweb3-utils": "1.0.1"
         }
       };

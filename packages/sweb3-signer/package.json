@@ -1,6 +1,6 @@
 {
   "name": "sweb3-signer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/index.js",
   "repository": "https://github.com/cryptape/nervos.js/tree/master/packages/nervos-signer",
   "author": "Keith <keithwhisper@gmail.com>",
@@ -15,7 +15,7 @@
     "ec": "^0.0.1",
     "elliptic": "^6.4.0",
     "google-protobuf": "^3.5.0",
-    "sweb3-eth": "1.0.2",
+    "sweb3-eth": "1.0.3",
     "sweb3-utils": "1.0.1"
   },
   "devDependencies": {
